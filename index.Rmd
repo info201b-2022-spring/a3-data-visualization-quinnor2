@@ -1,0 +1,47 @@
+---
+title: "index.Rmd"
+author: "Quinn Rosenberg"
+date: "5/17/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r data, include=FALSE}
+library(knitr)
+source("a3analysis.R")
+```
+
+## Introduction
+The Vera Incarceration dataset uses surveys, census and national programs in order to visualize trends in incarceration, tracking things like population by race, jail admissions and exits, and much more. In the United States, a very large concern is the incarceration rate of minority races. By looking at this data I hope to call awareness to the rate at which these races are being incarcerated and in which locations this is more prevalent.
+
+
+## Summary Information
+The proportion of incarcerated people who are black is _`r summary_info$black_proportion`_. The proportion of incarcerated people who are white is _`r summary_info$white_proportion`_. The proportion of incarcerated people who are asian is _`r summary_info$asian_proportion`_. The proportion of incarcerated people who are native is _`r summary_info$native_proportion`_. The proportion of incarcerated people who are latinx is _`r summary_info$latinx_proportion`_.
+
+
+## Plot 1: Linechart of Population Over Time in Large Minnesota counties
+I chose to show this because I come the largest county in Minnesota and have experienced/witnessed a lot of incarceration in my area. As you can see in the plot, Hennepin County (where Minneapolis is located), has not only experienced more incarceration than other counties but is also growing at the fastest rate, which makes me think there is going to be overincarceration in Henepin in the near future.
+
+```{r linechart, echo=FALSE}
+mn_over_time
+```
+
+
+## Plot 2: Scatterplot of Black vs White Incarceration by Region
+This graph was very interesting because I haven't had the chance to see the racial disparity in many regions of the United States when it comes to incarceration. The results were shocking as the Southern states were incarcerating a much higher proportion of black people than any other region. 
+
+```{r by_region, echo=FALSE}
+prop_by_region
+```
+
+## Plot 3: Heat Map of Black Proportion Incarcerated by State
+This map is supposed to point out exactly which states this problem is the most prevalent. I thought it would be interesting to see if there were any outlier states that may be a major cause of high black incarceration rates. The results were as expected as the south region was a much lighter blue than the rest of the country. Mississippi was the state that stuck out the most in terms of black incarceration proportion.
+
+```{r heatmap, echo=FALSE}
+prop_map
+```
+
+
